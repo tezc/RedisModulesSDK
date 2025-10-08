@@ -49,6 +49,11 @@ REDISMODULE_API int (*RedisModule_IsKeyInRam)(RedisModuleCtx *ctx, RedisModuleSt
 
 //---------------------------------------------------------------------------------------------
 
+/* Keyspace changes notification classes. Every class is associated with a
+ * character for configuration purposes.
+ * NOTE: These have to be in sync with NOTIFY_* in server.h */
+
+#define REDISMODULE_NOTIFY_TRIMMED (1<<30)     /* trimmed by reshard trimming enterprise only event */
 
 /* Server events definitions.
  * Those flags should not be used directly by the module, instead
